@@ -17,11 +17,11 @@ In [SMS Launcher](https://github.com/chasem-dev/sms-launcher): **Settings → Mo
 
 By hand: unzip a [release](https://github.com/chasem-dev/sms-seamless-episodes/releases) into the game's `mods/` folder, so that you have `mods/seamless-episodes/mod.ini`. The game's Mods menu (F1) switches it on and off.
 
-It needs a game with mod API 1.5 or newer. An older game leaves it off and says so in its log.
+It needs a game with mod API 1.4 or newer. An older game leaves it off and says so in its log.
 
 ## How it works
 
-It uses two things from the [mod SDK](https://github.com/chasem-dev/sms-mod-sdk)'s API 1.5:
+It uses two things from the [mod SDK](https://github.com/chasem-dev/sms-mod-sdk)'s API 1.4:
 
 - **`SMS_EV_STAGE_LEAVING`** says why the game is leaving a stage (`reason == SMS_LEAVE_SHINE`) and which Shine it was, once the Shine Get and the save are over, and lets a mod say where the game goes instead. A world's area with an episode named goes straight to that episode, past the episode select, as if it had been chosen there.
 - **`api->world`** says which world an area is part of (`world_of`) and which episode comes next (`next_episode`, `shine_episode`, `episode_name`).

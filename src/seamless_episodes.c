@@ -10,7 +10,7 @@
  * multiplayer (the players follow the host, as they always do). In a game
  * that joined someone else's it does nothing.
  *
- * How (mod API 1.5): SMS_EV_STAGE_LEAVING says why the stage is left
+ * How (mod API 1.4): SMS_EV_STAGE_LEAVING says why the stage is left
  * (SMS_LEAVE_SHINE) and which Shine it was, and lets a handler choose where
  * the game goes; api->world says which world an area is part of and which
  * episode comes next, as the episode select would offer it.
@@ -63,7 +63,7 @@ static int on_leaving(SmsMod* mod, SmsEvent* ev, void* user)
 	int world, next;
 	(void)user;
 
-	/* a game too old to say why it leaves (API 1.4 and before) */
+	/* a game too old to say why it leaves (API 1.3 and before) */
 	if (!to || ev->size < offsetof(SmsEvStage, shine) + sizeof to->shine)
 		return SMS_CONTINUE;
 	/* a Shine ended the stage, and the game goes back to the plaza */
@@ -101,7 +101,7 @@ SMS_MOD_EXTERN_C SMS_MOD_EXPORT int sms_mod_load(SmsMod* mod, const SmsApi* a)
 	api = a;
 
 	if (!SMS_API_HAS(api, world)) {
-		api->core->log(mod, SMS_LOG_ERROR, "needs mod API 1.5 (this game has %u.%u): update the game", api->major,
+		api->core->log(mod, SMS_LOG_ERROR, "needs a game with the mod API's worlds (api->world, API 1.4; this game has %u.%u): update the game", api->major,
 		               api->minor);
 		return 1;
 	}

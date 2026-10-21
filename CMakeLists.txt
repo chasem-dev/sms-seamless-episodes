@@ -12,11 +12,11 @@ project(seamless_episodes C)
 # https://github.com/chasem-dev/sms-mod-sdk/releases). A checkout of it
 # instead: -DFETCHCONTENT_SOURCE_DIR_SMS_MOD_SDK=<path>
 include(FetchContent)
-# API 1.5 is on its way into the SDK (chasem-dev/sms-mod-sdk feat/world-api):
-# its commit until the v1.5.0 tag.
+# API 1.4 is on its way into the SDK (chasem-dev/sms-mod-sdk feat/world-api):
+# its commit until the v1.4.0 tag.
 FetchContent_Declare(sms_mod_sdk
   GIT_REPOSITORY https://github.com/chasem-dev/sms-mod-sdk.git
-  GIT_TAG eb9f3df9e8d4f334734f6a4cc8cc5ec2c3927ae2)
+  GIT_TAG d3167625f66f589f10ebfe7134f4561d4893d52c)
 FetchContent_MakeAvailable(sms_mod_sdk)
 
 # mod/ is what ships (mod.ini, and images or data the mod reads); src/ is built
